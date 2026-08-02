@@ -34,7 +34,6 @@
 //   print an error message and stop.
 //
 
-//
 // =============================================================================
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
@@ -42,3 +41,75 @@
 #include <iostream>
 using namespace std;
 
+double calculateSum(double arr[], int size){
+    double total = 0;
+    for (int i = 0; i < size; ++i) {
+        total += arr[i];
+    }
+    return total;
+}
+
+double calculateAverage(double sum, int size) {
+    if (size == 0) {
+        return 0; // Avoid division by zero
+    }
+    return sum / size;
+}
+
+double findMaximum(double arr[], int size) {
+    if (size <= 0) {
+        return 0; // Handle empty array case
+    }
+    double maxVal = arr[0];
+    for (int i = 1; i < size; ++i) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+    return maxVal;
+}
+
+double findMinimum(double arr[], int size) {
+    if (size <= 0) {
+        return 0; // Handle empty array case
+    }
+    double minVal = arr[0];
+    for (int i = 1; i < size; ++i) {
+        if (arr[i] < minVal) {
+            minVal = arr[i];
+        }
+    }
+    return minVal;
+}
+
+int main() {
+    int N;
+    cout << "How many numbers? ";
+    cin >> N;
+
+    if (N <= 0) {
+        cout << "Error: Number of elements must be a positive integer." << endl;
+        return 1;
+    }
+
+    double* numbers = new double[N];
+
+    for (int i = 0; i < N; ++i) {
+        cout << "Enter number " << (i + 1) << ": ";
+        cin >> numbers[i];
+    }
+
+    double sum = calculateSum(numbers, N);
+    double average = calculateAverage(sum, N);
+    double maximum = findMaximum(numbers, N);
+    double minimum = findMinimum(numbers, N);
+
+    cout << "\nResults:" << endl;
+    cout << "Sum:     " << sum << endl;
+    cout << "Average: " << average << endl;
+    cout << "Maximum: " << maximum << endl;
+    cout << "Minimum: " << minimum << endl;
+
+    delete[] numbers; // Free allocated memory
+    return 0;
+}

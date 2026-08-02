@@ -57,3 +57,51 @@
 #include <iostream>
 using namespace std;
 
+void table(int num)
+{
+    for (int i = 1; i <= 12; i++)
+    {
+        cout << num << " x " << i << " = " << num * i << endl;
+    }
+}
+
+void tables(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        cout << "\nTable of " << i << endl;
+
+        for (int j = 1; j <= 12; j++)
+        {
+            cout << i << " x " << j << " = " << i * j << endl;
+        }
+
+        cout << "----------------" << endl;
+    }
+}
+
+int main()
+{
+    int num, n;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (num > 0)
+        table(num);
+    else
+    {
+        cout << "Invalid input!" << endl;
+        return 0;
+    }
+
+    cout << "\nEnter N: ";
+    cin >> n;
+
+    if (n > 0)
+        tables(n);
+    else
+        cout << "Invalid input!" << endl;
+
+    return 0;
+}
